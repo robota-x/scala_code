@@ -1,3 +1,4 @@
+// package cheatsheet  // package name. commented out as this is run as script
 // comment
 
 /*
@@ -40,14 +41,14 @@ if (true) 1 else 0
 // method definition
 def triple(x: Double): Double = x * 3  // implicit return
 
-def sumOfTriples(x: Double, y: Double): Double triple(x) + triple(y)
+def sumOfTriples(x: Double, y: Double): Double = triple(x) + triple(y)
 
-def inferredTriple(x: Int): x * 3  // params are never inferred in defs
+def inferredTriple(x: Int) = x * 3  // params are never inferred in defs
 
 List(1,2,3).map(x => x*2)  // params can be inferred in inline anonymous functions
 
 // recursion loop
-def factorial(n: Int): Int = if(n==0) 1 else fac(n-1) * n
+def factorial(n: Int): Int = if(n==0) 1 else factorial(n-1) * n
 
 factorial(17)  // unguarded overflow
 
@@ -61,4 +62,13 @@ def doubleAndOne(x: Int): Int = {
 def doubleWithBlock(x: Int): Int = {
     val double = { x * x }  // all blocks are expressions
     double
+}
+
+// objects and imports
+// import cheatsheet.Bar  // not sure if it works...
+
+object myProgram {
+    // Bar.sayHi
+
+    def main(args: Array[String]) = println("main method")  // entry point for execution
 }
