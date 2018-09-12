@@ -10,6 +10,7 @@
 true
 'f'
 "hello!"
+List(1,2,3)  // immutable, preferred over array
 Array(1,2,3)
 
 // concatenation
@@ -47,10 +48,24 @@ def inferredTriple(x: Int) = x * 3  // params are never inferred in defs
 
 List(1,2,3).map(x => x*2)  // params can be inferred in inline anonymous functions
 
-// recursion loop
+// recursion
 def factorial(n: Int): Int = if(n==0) 1 else factorial(n-1) * n
 
-factorial(17)  // unguarded overflow
+factorial(17)  // unguarded overflow :(
+
+// loops
+val numberList = List(1,2,3,4,5)
+
+for (number <- numberList if number % 2 == 0) {  // inline filter condition
+    println(number)
+}
+
+for {  // inline nested looping
+  numberA <- numberList
+  numberB <- numberList
+} println(numberA + " | " + numberB)
+
+for (number <- numberList) yield { number * number } // functional for loop yielding a block
 
 // closures and block expressions
 def doubleAndOne(x: Int): Int = { 
