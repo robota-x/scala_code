@@ -20,7 +20,7 @@ Array(1,2,3) ++ Array(1,2,3)
 
 // vars and type annotation
 val salute : String = "Hello Scala"
-val inferredValue = 12
+val inferredValue = 12  // camelcase
 
 var variable : Int = 40
 variable = 30  // type can't be changed
@@ -41,12 +41,7 @@ if (true) 1 else 0
 
 // method definition
 def triple(x: Double): Double = x * 3  // implicit return
-
-def sumOfTriples(x: Double, y: Double): Double = triple(x) + triple(y)
-
-def inferredTriple(x: Int) = x * 3  // params are never inferred in defs
-
-List(1,2,3).map(x => x*2)  // params can be inferred in inline anonymous functions
+val anonymousSquare = (x: Int) => x * x  // assigned to a val just to reference it
 
 // recursion
 def factorial(n: Int): Int = if(n==0) 1 else factorial(n-1) * n
@@ -87,3 +82,19 @@ object myProgram {
 
     def main(args: Array[String]) = println("main method")  // entry point for execution
 }
+
+// Higher order functions
+val numberList = List.range(1, 11)
+
+numberList.filter(number => number % 2 == 0)
+numberList.filter(_ % 2 == 0)  // underscore parameter placeholder
+
+// Function annotation
+def square(x: Int): Int = x * x  // fully annotated
+def square(x: Int) = x * x  // inferred return type
+
+val anonymousSquare = (x: Int) => x * x: Int  // fully annotated
+val anonymousSquare = (x: Int) => x * x  // inferred return type, most common?
+val anonymousSquare: Int => Int = x => x * x  // another way to annotate?
+
+List(1,2,3).map(x => x * x)  // inferred everything, only admitted in inline anonymous function
