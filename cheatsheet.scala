@@ -74,15 +74,6 @@ def doubleWithBlock(x: Int): Int = {
     double
 }
 
-// objects and imports
-// import cheatsheet.Bar  // not sure if it works...
-
-object myProgram {
-    // Bar.sayHi
-
-    def main(args: Array[String]) = println("main method")  // entry point for execution
-}
-
 // Higher order functions
 val numberList = List.range(1, 11)
 

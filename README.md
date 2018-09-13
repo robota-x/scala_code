@@ -1,0 +1,1 @@
+Mixed snippets of code to act as reminder while I refresh some scala basics
